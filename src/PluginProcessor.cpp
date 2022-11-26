@@ -11,10 +11,10 @@ DistortionPluginAudioProcessor::DistortionPluginAudioProcessor()
                                  .withOutput("Output", juce::AudioChannelSet::stereo(), true)
 #endif
 ), state(*this, nullptr, "STATE", {
-        std::make_unique<juce::AudioParameterFloat>(juce::ParameterID{"drive", 1}, "Drive", 0.0f, 1.f, 0.3f),
-        std::make_unique<juce::AudioParameterFloat>(juce::ParameterID{"range", 1}, "Range", 0.0f, 3000.0f, 20.f),
-        std::make_unique<juce::AudioParameterFloat>(juce::ParameterID{"blend", 1}, "Blend", 0.0f, 1.f, 0.3f),
-        std::make_unique<juce::AudioParameterFloat>(juce::ParameterID{"volume", 1}, "Volume", 0.0f, 3.f, 1.f)
+        std::make_unique<juce::AudioParameterFloat>(juce::ParameterID{"drive", 1}, "Drive", 0.0f, 1.f, 0.4f),
+        std::make_unique<juce::AudioParameterFloat>(juce::ParameterID{"range", 1}, "Range", 0.0f, 1000.0f, 100.f),
+        std::make_unique<juce::AudioParameterFloat>(juce::ParameterID{"blend", 1}, "Blend", 0.0f, 1.f, 0.35f),
+        std::make_unique<juce::AudioParameterFloat>(juce::ParameterID{"volume", 1}, "Volume", 0.0f, 3.f, 09.f)
 }) {
 }
 
@@ -135,17 +135,14 @@ void DistortionPluginAudioProcessor::processBlock(juce::AudioBuffer<float> &buff
     float volume = *state.getRawParameterValue("volume");
 
 
-    for (int channel = 0; channel < totalNumInputChannels; ++channel)
-    {
-        auto* channelData = buffer.getWritePointer (channel);
+    for (int channel = 0; channel < totalNumInputChannels; ++channel) {
+        auto *channelData = buffer.getWritePointer(channel);
 
-        for (int sample = 0;sample < buffer.getNumSamples(); sample++) {
-
-            float cleanSig = *channelData;
-
-            *channelData *= drive*range;
-
-            *channelData = (((((2.f / float_Pi) * atan(*channelData)) * blend)+(cleanSig*(1.f-blend)))/2.f) * volume;
+        for (int sample = 0; sample < buffer.getNumSamples(); sample++) {
+            float clean = *channelData;
+            *channelData *= drive * range;
+            float sigmoid = (2.f / float_Pi) * atan(*channelData);
+            *channelData = ((sigmoid * blend) + (clean * (1.f - blend))) * volume;
 
             channelData++;
         }
