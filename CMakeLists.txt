@@ -20,9 +20,9 @@ project(SmoothDistortion VERSION 0.0.1)
 # included JUCE directly in your source tree (perhaps as a submodule), you'll need to tell CMake to
 # include that subdirectory as part of the build.
 
-#find_package(JUCE CONFIG REQUIRED)        # If you've installed JUCE to your system
+# find_package(JUCE CONFIG REQUIRED)        # If you've installed JUCE to your system
 # or
-# add_subdirectory("C:\\Users\\juanm\\Documents\\Desarrollo\\Audio\\7.0.2\\JUCE" JUCE)                    # If you've put JUCE in a subdirectory called JUCE
+# add_subdirectory(JUCE)                    # If you've put JUCE in a subdirectory called JUCE
 
 include(FetchContent)
 FetchContent_Declare(
@@ -76,9 +76,9 @@ juce_generate_juce_header(SmoothDistortion)
 
 target_sources(SmoothDistortion
         PRIVATE
-        PluginEditor.cpp
-        PluginProcessor.cpp
-        KnobStyle.cpp
+        src/PluginEditor.cpp
+        src/PluginProcessor.cpp
+        src/KnobStyle.cpp
         )
 
 # `target_compile_definitions` adds some preprocessor definitions to our target. In a Projucer
