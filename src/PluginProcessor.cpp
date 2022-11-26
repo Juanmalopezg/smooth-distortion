@@ -11,9 +11,9 @@ DistortionPluginAudioProcessor::DistortionPluginAudioProcessor()
                                  .withOutput("Output", juce::AudioChannelSet::stereo(), true)
 #endif
 ), state(*this, nullptr, "STATE", {
-        std::make_unique<juce::AudioParameterFloat>(juce::ParameterID{"drive", 1}, "Drive", 0.0f, 1.f, 1.f),
-        std::make_unique<juce::AudioParameterFloat>(juce::ParameterID{"range", 1}, "Range", 0.0f, 3000.0f, 1.f),
-        std::make_unique<juce::AudioParameterFloat>(juce::ParameterID{"blend", 1}, "Blend", 0.0f, 1.f, 1.f),
+        std::make_unique<juce::AudioParameterFloat>(juce::ParameterID{"drive", 1}, "Drive", 0.0f, 1.f, 0.3f),
+        std::make_unique<juce::AudioParameterFloat>(juce::ParameterID{"range", 1}, "Range", 0.0f, 3000.0f, 20.f),
+        std::make_unique<juce::AudioParameterFloat>(juce::ParameterID{"blend", 1}, "Blend", 0.0f, 1.f, 0.3f),
         std::make_unique<juce::AudioParameterFloat>(juce::ParameterID{"volume", 1}, "Volume", 0.0f, 3.f, 1.f)
 }) {
 }
