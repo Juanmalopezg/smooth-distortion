@@ -33,7 +33,7 @@ DistortionPluginAudioProcessorEditor::~DistortionPluginAudioProcessorEditor() {
 void DistortionPluginAudioProcessorEditor::paint(juce::Graphics &g) {
     // (Our component is opaque, so we must completely fill the background with a solid colour)
     g.fillAll(juce::Colour(14, 24, 33));
-    svgDistor = juce::Drawable::createFromImageData(BinaryData::juanma_recurso_texto_svg,BinaryData::juanma_recurso_texto_svgSize);
+    svgDistor = juce::Drawable::createFromImageData(BinaryData::background_svg,BinaryData::background_svgSize);
 
     addAndMakeVisible(*svgDistor);
     svgDistor->setBounds(30, 175, getWidth(), getHeight());

@@ -5,7 +5,6 @@
 
 #include <JuceHeader.h>
 
-
 //==============================================================================
 class DistortionPluginAudioProcessorEditor : public juce::AudioProcessorEditor {
 public:

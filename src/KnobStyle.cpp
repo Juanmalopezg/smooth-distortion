@@ -5,7 +5,7 @@
 #include "KnobStyle.h"
 
 KnobStyle::KnobStyle() {
-    imageKnobJuanma = juce::ImageCache::getFromMemory(BinaryData::juanma_plugin_knob_png,BinaryData::juanma_plugin_knob_pngSize);
+    imageKnobJuanma = juce::ImageCache::getFromMemory(BinaryData::knob_png,BinaryData::knob_pngSize);
 }
 
 KnobStyle::~KnobStyle() {
