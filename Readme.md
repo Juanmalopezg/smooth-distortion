@@ -1,9 +1,8 @@
 # Smooth Distortion
 
-Guitar distortion made with the Juce framework 
+Guitar distortion audio plugin made in C++ with the Juce framework The DSP algorithm is based on a sigmoid function.
 
 ![](assets/screenshot.png)
-
 ### Build
 Since Visual Studio and CLion have built-in support for CMake, you can open the CMakeLists file with the IDE and it will automatically detect the project to configure your toolchain and build targets from there. (I prefer CLion).
 
