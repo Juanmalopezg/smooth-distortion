@@ -1,6 +1,6 @@
 # Smooth Distortion
 
-Guitar distortion audio plugin made in C++ with the Juce framework The DSP algorithm is based on a sigmoid function.
+Guitar distortion audio plugin made in C++ with the Juce framework. The DSP algorithm is based on a sigmoid function.
 
 ![](assets/screenshot.png)
 ### Build
