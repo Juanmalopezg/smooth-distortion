@@ -24,7 +24,7 @@ private:
     //[/UserVariables]
 
     //==============================================================================
-    juce::Image imageKnobJuanma;
+    juce::Image knobImage;
 
     //==============================================================================
     JUCE_DECLARE_NON_COPYABLE_WITH_LEAK_DETECTOR (KnobStyle)
