@@ -15,7 +15,7 @@ public:
     //[UserMethods]     -- You can add your own custom methods in this section.
     //[/UserMethods]
 
-    void KnobStyle::drawRotarySlider(juce::Graphics& g,
+    void drawRotarySlider(juce::Graphics& g,
                                            int x, int y, int width, int height, float sliderPos,
                                            float rotaryStartAngle, float rotaryEndAngle, juce::Slider& slider) override;
 
