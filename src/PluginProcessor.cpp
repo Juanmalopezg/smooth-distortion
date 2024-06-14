@@ -141,7 +141,7 @@ void DistortionPluginAudioProcessor::processBlock(juce::AudioBuffer<float> &buff
         for (int sample = 0; sample < buffer.getNumSamples(); sample++) {
             float clean = *channelData;
             *channelData *= drive * range;
-            float sigmoid = (2.f / float_Pi) * atan(*channelData);
+            float sigmoid = (2.f / MathConstants<float>::pi) * atan(*channelData);
             *channelData = ((sigmoid * blend) + (clean * (1.f - blend))) * volume;
 
             channelData++;
